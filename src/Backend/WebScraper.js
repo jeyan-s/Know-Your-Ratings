@@ -169,7 +169,7 @@ async function ScrapLeetCode(username)
     const rating = $('.text-label-1.text-2xl').first().text().replace(",", "");
     const ranking = $('.text-label-1.dark\\:text-dark-label-1.font-medium.leading-\\[22px\\]').first().text().split("/")[0].replace(",","");
     const problemSolved =  $('.text-\\[24px\\].font-medium.text-label-1.dark\\:text-dark-label-1').text().replace(",", "");
-    return {'Rating' : rating, 'Ranking' : ranking, "Solved" : problemSolved};
+    return {'Rating' : rating, 'Rank' : ranking, "Solved" : problemSolved};
 }
 
 async function ScrapCodeChef(username)
@@ -187,7 +187,7 @@ async function ScrapCodeChef(username)
     //     console.log($(this).text());
     // })
     // const rating = $('.rating-number').eq(4); // selects 5th element
-    return {'Rating' : rating, 'Ranking' : ranking, "Solved" : problemSolved};
+    return {'Rating' : rating, 'Rank' : ranking, "Solved" : problemSolved};
 }
 
 async function ScrapCodeforces(username)
@@ -221,7 +221,7 @@ async function ScrapPrepBytes(username)
     const ranking = $('.UserRanking__main-middle-container-no').first().text();
     //const score = $('.UserProfileHeader-right-top-score--text').text().split(" : ")[1]
     const problemSolved = $('.UserProblemsSolved__full-container--text').text().split(" ")[2].split("A")[0];
-    return {'Rating' : rating, 'Ranking' : ranking, "Solved" : problemSolved};
+    return {'Rating' : rating, 'Rank' : ranking, "Solved" : problemSolved};
 }
 
 async function ScrapAtCoder(username)
@@ -239,7 +239,7 @@ async function ScrapAtCoder(username)
     //const highestRating = $('span.user-gray').eq(2).text();
     const currentClass = $('span.bold').eq(1).text();
     const ranking = $('table.dl-table.mt-2').first().text().match(/\d+/)[0];
-    return {'Rating' : rating, 'Class' : currentClass, "Ranking" : ranking};
+    return {'Rating' : rating, 'Class' : currentClass, "Rank" : ranking};
 }
 
 async function ScrapSPOJ(username)
@@ -251,7 +251,7 @@ async function ScrapSPOJ(username)
     const ranking = $('.col-md-3').eq(0).find('p').eq(2).text().split(": #")[1].split(" ")[0];  // World Rank: #110411 (0 points)
     const points = $('.col-md-3').eq(0).find('p').eq(2).text().split(": #")[1].split(" ")[1].substring(1);
     const problemSolved = $('.dl-horizontal.profile-info-data.profile-info-data-stats dd').first().text();
-    return {'Ranking' : ranking, 'Points' : points, "Solved" : problemSolved};
+    return {'Rank' : ranking, 'Points' : points, "Solved" : problemSolved};
 }
 
 async function ScrapHackerEarth(username)
@@ -280,7 +280,7 @@ async function ScrapCodeAbbey(username)
     const rank = $('.rank.rank0').text();
     const problemSolved = $('.full-width p').first().text().match(/\d+/)[0];
     //const tops = $('.advheader p').text().split(" ")[15].split(")")[0]
-    return {'Position' : position, 'Ranking' : rank, "Solved" : problemSolved};
+    return {'Position' : position, 'Rank' : rank, "Solved" : problemSolved};
 }
 
 async function ScrapInterviewBit(username)
@@ -302,8 +302,8 @@ async function ScrapGeeksForGeeks(username)
     html = html.data;
     const $ = cheerio.load(html);
     const score = $('.score_card_value').eq(0).text();
-    const streak = $('.score_card_value').eq(1).text();
-    const problemSolved = $('.streakCnt.tooltipped').text().split(" ")[0];
+    const problemSolved = $('.score_card_value').eq(1).text();
+    const streak = $('.streakCnt.tooltipped').text().split(" ")[0];
     return {'Score' : score, 'Solved': problemSolved, 'Streak' : streak}
 }
 
