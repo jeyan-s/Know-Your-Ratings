@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Platform from './Platform';
 import axios from 'axios';
 import Logo from './LogoURL'
-const GeeksForGeeks = () => {
+const GeeksForGeeks = (props) => {
   const [platformData, setPlatformData] = useState({}); // State to hold platform data
 
   useEffect(() => {
@@ -10,7 +10,7 @@ const GeeksForGeeks = () => {
     const fetchPlatformData = async () => {
       try 
       {
-        const uname = "jeyannino001";
+        const uname = props.username;
         const data = {};
         const response = await axios.get(`http://localhost:5000/geeksforgeeks/${uname}`);
         data['features'] = response.data;
