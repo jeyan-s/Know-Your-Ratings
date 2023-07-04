@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Platform from './Platform';
 import axios from 'axios';
 import Logo from './LogoURL'
-const AtCoder = () => {
+const AtCoder = (props) => {
   const [platformData, setPlatformData] = useState({}); // State to hold platform data
 
   useEffect(() => {
@@ -10,8 +10,8 @@ const AtCoder = () => {
     const fetchPlatformData = async () => {
       try 
       {
-        const uname = "Jack_01"
-        const data = {}
+        const uname = props.username;
+        const data = {};
         const response = await axios.get(`http://localhost:5000/atcoder/${uname}`);
         data['features'] = response.data
         data['userName'] = uname;
