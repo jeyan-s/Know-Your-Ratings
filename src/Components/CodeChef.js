@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Platform from './Platform';
 import axios from 'axios';
 import Logo from './LogoURL'
-const CodeChef = () => {
+const CodeChef = (props) => {
   const [platformData, setPlatformData] = useState({}); // State to hold platform data
 
   useEffect(() => {
@@ -10,8 +10,8 @@ const CodeChef = () => {
     const fetchPlatformData = async () => {
       try 
       {
-        const uname = "smartie_jack"
-        const data = {}
+        const uname = props.username;
+        const data = {};
         const response = await axios.get(`http://localhost:5000/codechef/${uname}`);
         data['features'] = response.data
         data['userName'] = uname;
