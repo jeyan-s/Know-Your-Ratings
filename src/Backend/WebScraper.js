@@ -295,7 +295,7 @@ async function ScrapInterviewBit(username)
     return {'Rank' : rank, 'Score' : score, 'Streak' : streak}
 }
 
-async function GeeksForGeeks(username)
+async function ScrapGeeksForGeeks(username)
 {
     const url = "https://auth.geeksforgeeks.org/user/" + username;
     let html = await axios.get(url);
